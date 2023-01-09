@@ -1,5 +1,5 @@
 .App {
-  width: 300px;
+  width: 350px;
   margin: 30px;
 }
 
@@ -11,8 +11,3 @@
   width: 80px;
   margin-top: 10px;
 }
-
-.row .check{
-  margin-left: 10px;
-}
-

@@ -18,6 +18,9 @@ function App() {
 
   const NewTodo = (title) => {
     setToDoList([...toDoList, { title: title, done: false }]);
+    
+    //Save to local storage
+    localStorage.setItem('todolist', JSON.stringify(toDoList));
   }
 
   return (

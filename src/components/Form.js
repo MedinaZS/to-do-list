@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Form = ({ toDoList, setToDoList, onNewTodo}) => {
+const Form = ({onNewTodo}) => {
 
     const handleSubmit = (e) => {
         const input = document.getElementById("todo");
@@ -14,7 +14,7 @@ const Form = ({ toDoList, setToDoList, onNewTodo}) => {
     return (
         <form className='myForm' onSubmit={handleSubmit}>
             <div className='form-group'>
-                <input id='todo' type="text" className='form-control bg-light' required/>
+                <input id='todo' type="text" className='form-control bg-light' required autoComplete='off'/>
                 <button type="submit" className='btn btn-primary'>Add</button>
             </div>
         </form>
