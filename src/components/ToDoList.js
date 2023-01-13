@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const ToDoList = ({ toDoList, setToDoList }) => {
+const ToDoList = ({ toDoList, setToDoList, saveList }) => {
+
+    
 
     useEffect(() => {
+        console.log("use effect list");
+        //Every render set todolist from local storage
         setToDoList(JSON.parse(localStorage.getItem('todolist')));
     }, []);
+
+   
 
     //Marcar y desmarcar tareas
     const handleCheck = (title) => {
@@ -15,7 +21,8 @@ const ToDoList = ({ toDoList, setToDoList }) => {
                 return item;
             }
         });
-        handleToDo(newList);
+        // setToDoList(newList);
+        saveList(newList);
     }
 
     const handleDelete = (i) => {
@@ -23,15 +30,11 @@ const ToDoList = ({ toDoList, setToDoList }) => {
         const newList = toDoList.filter((element, index) => {
             if (i !== index) return element;
         });
-        handleToDo(newList);
+        
+        // setToDoList(newList);
+        saveList(newList);
     }
 
-    const handleToDo = (newList) => {
-        //Set todod
-        setToDoList(newList);
-        //Save to local storage
-        localStorage.setItem('todolist', JSON.stringify(toDoList));
-    }
 
     return (
         <div>

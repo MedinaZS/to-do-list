@@ -16,17 +16,19 @@ function App() {
     }
   ]);
 
-  const NewTodo = (title) => {
-    setToDoList([...toDoList, { title: title, done: false }]);
-    
-    //Save to local storage
-    localStorage.setItem('todolist', JSON.stringify(toDoList));
+
+  const saveList = (newList) => {
+    //Set todolist
+    setToDoList(newList);
+    //Save to local
+    console.log('save to local');
+    localStorage.setItem('todolist', JSON.stringify(newList));
   }
 
   return (
     <div className="App">
-      <Form onNewTodo={NewTodo}/>
-      <ToDoList toDoList={toDoList} setToDoList={setToDoList} />
+      <Form toDoList={toDoList} setToDoList={setToDoList} saveList={saveList} />
+      <ToDoList toDoList={toDoList} setToDoList={setToDoList} saveList={saveList} />
     </div>
   );
 }
